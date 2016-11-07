@@ -1,0 +1,25 @@
+import java.util.*;
+class Employee{
+	int id;
+	String name;
+	Employee(int i,String n){
+		id=i;
+		name=n;
+	}
+	void display(){
+		System.out.println("Employee id is :"+id+" whose name is "+name);
+	}
+}
+public class Construct {
+     public static void main(String args[]){
+    	 //while(true){
+    		 Scanner sc=new Scanner(System.in);
+    		 System.out.println("Enter the id and name of the employee:");
+    		 int i=sc.nextInt();
+    		 String n=sc.nextLine();
+    		 Employee e=new Employee(i,n);
+    		 e.display();
+    		 sc.close();
+    	 //}
+     }
+}

@@ -1,0 +1,16 @@
+package com.lister.souvik;
+import java.util.*;
+class Employee{
+	int id;
+	String name;
+	Employee(int i,String n){
+		id=i;
+		name=n;
+	}
+	void display(){
+		System.out.println("Employee id is :"+id+" whose name is "+name);
+	}
+}
+ class Construct {
+     
+}
