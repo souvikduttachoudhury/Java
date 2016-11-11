@@ -1,0 +1,12 @@
+package com.packt.webstore.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.packt.webstore.domain.repository.ProductRepository;
+
+
+public class ProductServiceImpl {
+	@Autowired
+	private ProductRepository productRepository;
+	
+}

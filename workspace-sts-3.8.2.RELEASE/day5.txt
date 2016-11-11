@@ -1,0 +1,201 @@
+Assignment 5
+
+
+1)
+create table customer_roushan(cust_id number,cust_name varchar2(50),join_date date,last_visit_date date);
+insert into customer_roushan values(1,'roushan','10-oct-16','22-oct-16');
+insert into customer_roushan values(2,'rishabh','10-aug-16','28-oct-16');
+insert into customer_roushan values(3,'souvik','12-feb-15','28-apr-16');
+insert into customer_roushan values(4,'ankita','10-jan-16','11-aug-16');
+insert into customer_roushan values(5,'pritam','10-oct-15','11-oct-16');
+insert into customer_roushan values(6,'upashna','11-may-15','11-may-16');
+
+create table product_roushan(product_id number,product_name varchar2(50),cost number,stock_quantity number,red_flag varchar2(10),last_sold_date date);
+insert into product_roushan values(1,'tv',18000,16,'false','10-oct-16');
+insert into product_roushan values(2,'radio',3000,26,'false','28-oct-16');
+insert into product_roushan values(3,'oven',9000,82,'false','4-oct-15');
+insert into product_roushan values(4,'mobile',6000,52,'false','5-may-16');
+insert into product_roushan values(5,'tablet',32000,16,'false','15-aug-16');
+insert into product_roushan values(6,'iphone',58000,96,'false','10-apr-15');
+
+
+i)CREATE OR REPLACE PROCEDURE bill_calc(cust_id IN number,prod_id IN number,quantity IN number,total_cost OUT number) 
+ IS 
+ v_qty number; 
+BEGIN 
+ SELECT stock_quantity 
+INTO v_qty
+ FROM product_roushan
+WHERE product_id = prod_id; 
+IF (v_qty<quantity) THEN
+dbms_output.put_line('out of stock');
+update product_roushan set red_flag ='true' where product_roushan.product_id = prod_id;  
+END IF; 
+END;
+
+ii)CREATE OR REPLACE PROCEDURE bill_calc(cust_id IN number,prod_id IN number,quantity IN number) 
+ IS 
+v_qty number;
+costs number;
+price number;
+d date;
+BEGIN  
+ SELECT stock_quantity 
+INTO v_qty
+ FROM product_roushan
+WHERE product_id = prod_id; 
+select cost into costs from product_roushan where product_roushan.product_id=prod_id;
+select join_date into d from customer_roushan where customer_roushan.cust_id=cust_id;
+IF((sysdate-d)<30.000000) THEN
+price:=0.95*costs*v_qty;
+End IF;
+END;
+
+iii)CREATE OR REPLACE PROCEDURE bill_calc(cust_id IN number,prod_id IN number,quantity IN number) 
+ IS 
+v_qty number;
+costs number;
+price number;
+d date; 
+BEGIN  
+SELECT stock_quantity 
+INTO v_qty
+ FROM product_roushan
+WHERE product_id = prod_id;
+select cost into costs from product_roushan where product_roushan.product_id=prod_id;
+select last_visit_date into d from customer_roushan where customer_roushan.cust_id=cust_id;
+IF((sysdate-d)<10.000000) THEN
+price:=0.95*costs*v_qty;
+End IF;
+END;
+
+iv)CREATE OR REPLACE PROCEDURE bill_calc(cust_id IN number,prod_id IN number,quantity IN number) 
+ IS 
+v_qty number;
+costs number;
+price number;
+d date; 
+BEGIN  
+SELECT stock_quantity INTO v_qty FROM product_roushan WHERE product_id = prod_id;
+select cost into costs from product_roushan where product_roushan.product_id=prod_id;
+select last_sold_date into d from product_roushan where product_roushan.product_id=prod_id;
+IF((sysdate-d)>20.000000) THEN
+price:=0.90*costs*v_qty;
+End IF;
+END;
+
+2)
+
+3)CREATE OR REPLACE PACKAGE c_package AS
+   -- Inserting Customers
+   PROCEDURE insertcustomers(c_id   customer_roushan.cust_id%type,
+   c_name   customer_roushan.cust_name%type);
+
+  -- Inserting Products
+   PROCEDURE insertproducts(p_id  product_roushan.product_id%type,
+   p_name  product_roushan.product_name%type);
+   
+   -- Removes a customer
+   PROCEDURE delcustomer(c_id customer_roushan.cust_id%type);
+
+ -- Removes a product
+   PROCEDURE delproduct(p_id product_roushan.product_id%type);
+
+END c_package;
+/
+
+
+CREATE OR REPLACE PACKAGE BODY c_package AS
+
+ PROCEDURE insertcustomers(c_id customer_roushan.cust_id%type,
+ c_name customer_roushan.cust_name%type)
+  IS
+ BEGIN
+ INSERT INTO customer_roushan(cust_id,cust_name)
+  VALUES(c_id,c_name)
+   END insertcustomers;
+
+
+
+ PROCEDURE insertproducts(p_id product_roushan.product_id%type,
+   p_name product_roushan.product_name%type)
+  IS
+ BEGIN
+ INSERT INTO product_roushan(product_id,product_name)
+  VALUES(p_id,p_name);
+   END insertproducts;
+
+  
+ PROCEDURE delcustomer(c_id customer_roushan.cust_id%type) IS
+   BEGIN
+       DELETE FROM customer_roushan
+         WHERE cust_id = c_id;
+   END delcustomer;
+
+
+PROCEDURE delproduct(p_id product_roushan.product_id%type) IS
+   BEGIN
+       DELETE FROM product_roushan
+         WHERE product_id = p_id;
+   END delproduct;
+
+   
+END c_package;
+/
+4.II)
+create or replace procedure check_duplicate_customer(customer_name IN varchar2(50)) IS
+cursor c1 IS 
+select cust_name,join_date from customer_roushan;
+customer_rec c1%rowtype;
+BEGIN
+open c1;
+loop
+fetch c1 into customer_rec;
+exit when c1%notfound;
+end loop;
+close c1;
+select count(cust_name) from customer_roushan where customer_roushan.cust_name=customer_name;
+IF(count(customer_roushan.cust_name)>1) THEN
+dbms_output.put_line('True');
+else
+dbms_output.put_line('False');
+end;
+
+5.)
+CREATE OR REPLACE PROCEDURE oldest_customer(customer_id IN number)
+AS
+d customer_roushan.last_visit_date%type;
+cursor cc is select last_visit_date from customer_roushan where customer_roushan.cust_id=customer_id;
+BEGIN
+open cc;
+fetch cc into d;
+if((sysdate-d)>60)then
+delete cust_name from customer_roushan;
+elsif((sysdate-d)between 30 and 60) then
+dbms_output.put_line(customer_roushan.cust_name || 'consider_deleting');
+elsif((sysdate-d)between 15 and 30) then
+dbms_output.put_line('call_back'|| customer_roushan.cust_name);
+else
+Update customer_roushan set cust_name = substr(cust_name, 1, 2) || 'trusted' || substr(cust_name,3);
+end if;
+close cc;
+END;
+/
+
+6)DECLARE
+c_name customer_roushan.cust_name%type;
+-- user defined exception
+ex_invalid EXCEPTION;
+exx_invalid EXCEPTION;
+BEGIN
+IF c_name is null THEN
+RAISE ex_invalid;
+elsif (length(c_name)<10) THEN
+RAISE exx_invalid;
+END IF;
+EXCEPTION
+WHEN ex_invalid THEN
+dbms_output.put_line('please do not enter blank values');
+WHEN exx_invalid THEN
+dbms_output.put_line('please enter a string greater than ten characters');
+end;

@@ -1,0 +1,156 @@
+Q1:
+
+create or replace procedure bill_calc(int cust_id,int prod_id,int quantity)
+AS v_qty NUMBER;
+d DATE;
+price NUMBER;
+cost NUMBER;
+Begin
+Select STOCK_QUANTITY NUMBER from Product INTO v_qty 
+WHERE Product.PROD_ID=prod_id;
+
+IF (v_qty<quantity) then DBMS.output_line("Out of stock");
+update Product set RedFlag="True" where Product.PROD_ID=prod_id;
+ENDIF;
+ELSE
+
+SELECT COST from Product INTO cost; 
+price=cost*v_qty;
+SELECT (Sysdate-Join_Date) INTO d from Customer
+WHERE Customer.cust_id=cust_id;
+
+IF (d<30) THEN price=0.95*cost*v_qty;
+ENDIF;
+
+SELECT (Sysdate-Last_Visit_Date) INTO d from Customer
+WHERE Customer.cust_id=cust_id;
+
+IF (d<10) THEN price=0.95*price;
+ENDIF;
+
+SELECT (Sysdate-Last_Sold_Date) INTO d from Product
+WHERE Product.PROD_ID=Prod_id
+IF (d>20) THEN price=0.9*price;
+ENDIF;
+
+DBMS.output_line("The bill is of amount:"||toChar(price));
+END;
+
+END;
+/
+
+
+Q3:
+CREATE OR REPLACE PACKAGE store_mgmnt AS
+FUNCTION insert_cust(Cust_Name Varchar2(50), Join_Date Date, Last_Visit_Date Date);
+RETURN number;
+FUNCTION insert_prod(PROD_NAME VARCHAR2(50), COST NUMBER, STOCK_QUANTITY NUMBER, RED_FLAG VARCHAR2(10), LAST_SOLD_DATE DATE);
+RETURN number;
+FUNCTION delete_cust(cust_id NUMNBER);
+RETURN number;
+FUNCTION delete_prod(prod_id NUMNBER);
+RETURN number;
+PROCEDURE bill_calc(int cust_id,int prod_id,int quantity);
+FUNCTION edit_cust(cust_ID Number, Cust_Name Varchar2(50), Join_Date Date, Last_Visit_Date Date);
+RETURN number;
+FUNCTION edit_prod(prod_id NUMNBER,PROD_NAME VARCHAR2(50), COST NUMBER, STOCK_QUANTITY NUMBER, RED_FLAG VARCHAR2(10), LAST_SOLD_DATE DATE);
+RETURN number;
+END store_mgmnt;
+
+CREATE OR REPLACE PACKAGE BODY store_mgmnt AS
+
+FUNCTION insert_cust(CUST_ID NUMBER, Cust_Name Varchar2(50), Join_Date Date, Last_Visit_Date Date);
+BEGIN
+insert into Customers values (CUST_ID,Cust_name,Join_date,Last_visit_date);
+return 0;
+END;
+/
+
+FUNCTION insert_prod(prod_id NUMBER,PROD_NAME VARCHAR2(50), COST NUMBER, STOCK_QUANTITY NUMBER, RED_FLAG VARCHAR2(10), LAST_SOLD_DATE DATE);
+BEGIN
+insert into Product values (prod_id NUMBER,PROD_NAME,COST,STOCK_QUANTITY,RED_FLAG,LAST_SOLD_DATE);
+return 0;
+END;
+/
+
+FUNCTION delete_cust(CUST_ID NUMBER)
+BEGIN
+delete from Customer where customer.CUST_ID=CUST_ID;
+return 0;
+END;
+/
+
+FUNCTION delete_prod(prod_id NUMBER)
+BEGIN
+delete from Product where Product.PROD_ID=prod_id;
+return 0;
+END;
+/
+
+FUNCTION edit_cust(CUST_ID NUMBER, Cust_Name Varchar2(50), Join_Date Date, Last_Visit_Date Date);
+BEGIN
+Update table Customer set Customer.CUST_NAME=CUST_NAME WHERE Customer.CUST_ID=CUST_iD;
+Update table Customer set Customer.Join_Date=Join_Date WHERE Customer.CUST_ID=CUST_iD;
+Update table Customer set Customer.Last_Visit_Date=Last_Visit_Date WHERE Customer.CUST_ID=CUST_iD;
+return 0;
+END;
+/
+
+FUNCTION edit_prod (prod_id NUMBER,PROD_NAME VARCHAR2(50), COST NUMBER, STOCK_QUANTITY NUMBER, RED_FLAG VARCHAR2(10), LAST_SOLD_DATE DATE);
+BEGIN
+Update table Product set Product.PROD_NAME=PROD_NAME WHERE Product.prod_id=prod_id;
+Update table Product set Product.COST=COST WHERE Product.prod_id=prod_id;
+Update table Product set Product.STOCK_QUANTITY=STOCK_QUANTITY WHERE Product.prod_id=prod_id;
+Update table Product set Product.RED_FLAG=RED_FLAG WHERE Product.prod_id=prod_id;
+Update table Product set Product.LAST_SOLD_DATE=LAST_SOLD_DATE WHERE Product.prod_id=prod_id;
+RETURN 0;
+END;
+/
+
+create or replace procedure bill_calc(int cust_id,int prod_id,int quantity)
+AS v_qty NUMBER;
+d DATE;
+price NUMBER;
+cost NUMBER;
+Begin
+Select STOCK_QUANTITY NUMBER from Product INTO v_qty 
+WHERE Product.PROD_ID=prod_id;
+
+IF (v_qty<quantity) then DBMS.output_line("Out of stock");
+update Product set RedFlag="True" where Product.PROD_ID=prod_id;
+ENDIF;
+ELSE
+
+SELECT COST from Product INTO cost; 
+price=cost*v_qty;
+SELECT (Sysdate-Join_Date) INTO d from Customer
+WHERE Customer.cust_id=cust_id;
+
+IF (d<30) THEN price=0.95*cost*v_qty;
+ENDIF;
+
+SELECT (Sysdate-Last_Visit_Date) INTO d from Customer
+WHERE Customer.cust_id=cust_id;
+
+IF (d<10) THEN price=0.95*price;
+ENDIF;
+
+SELECT (Sysdate-Last_Sold_Date) INTO d from Product
+WHERE Product.PROD_ID=Prod_id
+IF (d>20) THEN price=0.9*price;
+ENDIF;
+
+DBMS.output_line("The bill is of amount:"||toChar(price));
+END;
+
+END;
+END store_mgmnt;
+/
+
+
+
+
+
+
+
+
