@@ -1,0 +1,19 @@
+create or replace procedure trial is
+ cursor c1 is select * from customer_souvik;
+ v1 c1%rowtype;
+  begin
+  for i in c1
+  loop
+  dbms_output.put_line(i.cust_id);
+  end loop;
+  end;
+  
+   create or replace procedure trial1 is
+  2   cursor c1 is select * from customer_souvik;
+  3   begin
+  4   for i in c1
+  5  loop
+  6  dbms_output.put_line(i.cust_name);
+  7  end loop;
+  8  end;
+  9  /

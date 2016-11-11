@@ -1,0 +1,227 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 26, 2016, 6:07:20 PM
+    Author     : souvik.p
+*/
+*{
+    margin: 0;
+    font-family: Arial,Helvetica,sans-serif;
+}
+.wrapper{
+    color:black;
+    position: relative;
+}
+header{
+    border-top: 12.5px solid black;
+    position: fixed;
+    background-color:#3A3C3C;
+    width:100%;
+    height: 150px;
+    color:white;
+    z-index: 100;
+}
+.blogtitle li{
+    margin-left: 11%;
+    margin-top: 30px;
+    font-size: 17.5px;
+    list-style: none;
+}
+.blogtitle li:last-child{
+    margin-top: 10px;
+}
+.mailid{
+    position: absolute;
+    left: 45%;
+    top:22.5%;
+}
+.mailid li{
+    list-style: none;
+    float:left;
+    display:inline;
+    margin-right: 12.5px;
+}
+.mailid li:last-child{
+    padding-top: 5px;
+}
+.contactid{
+    position: absolute;
+    top:22.5%;
+    left: 70%;
+}
+.contactid li{
+    list-style: none;
+    float:left;
+    display: inline;
+    margin-right: 12.5px;
+}
+.contactid li:last-child{
+    padding-top: 5px;
+}
+.msg-logo{
+    border-radius: 50%;
+    border-color: #3A3C3C;
+}
+.navigation-pane{
+    position: absolute;
+    left:0;
+    right:0;
+    background-color: #222222;
+    bottom: 0;
+    height:30px;
+    width:1000px;
+    margin: 0 auto;
+}
+.navigation-pane li{
+    display: inline;
+    margin-left: 12.5px;
+    font-family: Calibri;
+}
+.navigation-pane ul{
+    margin-top: 7.5px;
+}
+.navigation-pane li a{
+    text-decoration:none;
+    color:whitesmoke;
+}
+.content-wrapper{
+    position: absolute;
+    width: 1000px;
+    top:200px;
+    margin:0 auto;
+    left:0;
+    right:0;
+}
+.content-block{
+    float:left;
+    padding-top: 20px;
+    width:100%;
+}
+.content-block:first-child{
+    padding-top: 0;
+}
+.content-header{
+    font-family: Arial;
+}
+.content-info{
+    margin-top: 10px;
+}
+.content-matter{
+    margin-top: 20px;
+    float:left;
+}
+.side-pane{
+    position: absolute;
+    top:200px;
+    left:900px;
+}
+.side-pane-head{
+    width: 250px;
+    height: 35px;
+    background-color: #2C2E2E;
+    color: white;
+    margin-top: 50px;
+}
+.side-pane-head:first-child{
+    margin-top:0;
+}
+.side-pane-head-txt{
+    padding-top:7.5px;
+    padding-left: 10px;
+    font-family: Arial;
+}
+.side-pane-body{
+    margin-top: 17.5px;
+    width:250px;
+    list-style: none;
+}
+.side-pane-body a{
+    text-decoration: none;
+    color:#333333;
+    font-size: 13.75px;
+}
+.side-pane-body-link{
+    margin-top: 10px;
+}
+.content-matter ul {
+    padding: 0;
+}
+
+.content-matter li {
+    list-style: none;
+    width: 40%;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 15px;
+}
+.content-matter img{
+    width:212.5px;
+    height: 150px;
+}
+.content-matter li:first-child{
+    width:30%;
+    margin-right: -70px;
+}
+
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 27, 2016, 2:41:46 PM
+    Author     : souvik.p
+*/
+
+#cnt_form table{
+    position: absolute;
+    width: 500px;
+    top:200px;
+    left:200px;
+    height: 400px;
+    box-shadow: 4px 8px 8px 3px;
+}
+#cnt_form td{
+    padding: 20px;
+}
+#cnt_form td:first-child{
+     text-align: right;
+}
+#cnt_form tr{
+}
+#cnt_form tr:last-child td{
+    text-align: center;
+}
+#cnt_form table input{
+    width:200px;
+    height: 17.5px;
+    box-shadow: 0.75px 0.75px 0.75px 0;
+    border-radius: 1px;
+    box-decoration-break: clone;
+}
+#cnt_form table input[type="submit"]{
+    width: 100px;
+    height: 21.75px;
+    background-color: #ffff00;
+    border-color: #ffcc66
+}
+#cnt_form table input[type="submit"]:hover{
+    box-shadow: 0 4px 8px 0;
+}
+#cnt_form table select{
+    width: 200px;
+}
+#cnt_form table textArea{
+    width: 200px;
+}
+body{
+}
+
+
+

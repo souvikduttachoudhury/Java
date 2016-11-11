@@ -1,0 +1,17 @@
+package pkg1;
+class Abs{
+	protected void done(){
+		System.out.println("In parent class");
+	}
+}
+class Child extends Abs{
+	protected void done(){
+		System.out.println("In child class");
+	}
+}
+public class AbstractImplementation {
+	public static void main(String args[]){	
+		Child ch1=new Child();
+		ch1.done();
+	}
+}

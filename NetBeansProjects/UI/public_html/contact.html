@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Contact Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/css_blog.css" type="text/css"/>
+    </head>
+    <body>
+        <div class="wrapper">
+        <header>
+                <div class="blogtitle">
+                    <ul>
+                        <li><h1>Avenue</h1></li>
+                        <li>A blogger template by newbloggerthemes.com</li>
+                    </ul>
+                </div>
+                <div class="mailid">
+                    <ul>
+                        <li><img class="msg-logo" src="logo/lg1.png"/></li>
+                        <li><h4>MAIL US</h4>contact@mysite.com</li>
+                    </ul>
+                </div>
+                <div class="contactid">
+                    <ul>
+                        <li><img class="ctc-logo" src="logo/lg2.png"/></li>
+                        <li><h4>CALL US</h4>777-888-9900</li>
+                    </ul>
+                </div>
+                <nav class="navigation-pane">
+                    <ul>
+                        <li><a href="http://localhost:8383/UI/myblog.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Blogger Templates</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <form id="cnt_form" action="myblog.html" onsubmit="return validate()">
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input id="cnt_form_name" type="text" placeholder="Full Name" onblur="display_msg(this.id,this.id+'_msgblock');" onfocus="remove_msg(this.id+'_msgblock');"><span id="cnt_form_name_msgblock"></span></td>
+                </tr>
+                    
+                <tr>
+                    <td><label>Phone</label></td>
+                    <td><input id="cnt_form_phone" type="text" placeholder="With STD Code" onblur="display_msg(this.id,this.id+'_msgblock');" onfocus="remove_msg(this.id+'_msgblock');"><span id="cnt_form_phone_msgblock"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Email</label></td>
+                    <td><input id="cnt_form_email" type="text" placeholder="something@xyz.com" onblur="display_msg(this.id,this.id+'_msgblock');" onfocus="remove_msg(this.id+'_msgblock');"><span id="cnt_form_email_msgblock"></span></td>
+                </tr>
+                <tr>
+                    <td><label>Country</label></td>
+                    <td><select>
+                            <option>India</option>
+                            <option>Pakistan</option>
+                            <option>United States</option>
+                            <option>England</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td><label>Comments</label></td>
+                    <td><textarea></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Reset"></td>
+                </tr>
+            </table>
+        </form>
+            <div class="side-pane">
+                <div class="side-pane-head">
+                    <div class="side-pane-head-txt"><h4>Popular Posts</h4></div>
+                </div>
+                <div class="side-pane-body">
+                    <div class="side-pane-body-link"><a href="#">Sample Posts with links paragraphs and comments</a></div>
+                    <div class="side-pane-body-link"><a href="#">This is just going to be Another Test Post</a></div>
+                    <div class="side-pane-body-link"><a href="#">Another one to fill space</a></div>
+                    <div class="side-pane-body-link"><a href="#">Keeping the title length equal for home</a></div>
+                </div>
+                <div class="side-pane-head">
+                    <div class="side-pane-head-txt"><h4>Recent Posts</h4></div>
+                </div>
+                <div class="side-pane-body">
+                    <div class="side-pane-body-link"><a href="#">Sample Posts with links paragraphs and comments</a></div>
+                    <div class="side-pane-body-link"><a href="#">This is just going to be Another Test Post</a></div>
+                    <div class="side-pane-body-link"><a href="#">Another one to fill space</a></div>
+                    <div class="side-pane-body-link"><a href="#">Keeping the title length equal for home</a></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/contact.js">
+            
+        </script>
+    </body>
+</html>

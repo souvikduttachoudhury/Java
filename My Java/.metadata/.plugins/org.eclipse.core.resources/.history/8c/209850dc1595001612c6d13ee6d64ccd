@@ -1,0 +1,15 @@
+package pkg1;
+abstract class Abs{
+	abstract void done();
+}
+class Child extends Abs{
+	void done(){
+		System.out.println("Abstract Method Inherited");
+	}
+}
+public class AbstractImplementation {
+	public static void main(String args[]){	
+		Child ch1=new Child();
+		ch1.done();
+	}
+}

@@ -1,0 +1,65 @@
+Ans 1:
+
+create or replace bill_calc(int cust_id,int prod_id,int quantity)
+AS v_qty NUMBER;
+d DATE;
+price NUMBER;
+cost NUMBER;
+Begin
+Select STOCK_QUANTITY NUMBER from Product INTO v_qty 
+WHERE Product.PROD_ID=prod_id;
+ 
+IF (v_qty<quantity) then DBMS.output_line("Out of stock");
+update Product set RedFlag="True" where Product.PROD_ID=prod_id;
+ENDIF
+ELSE
+ 
+SELECT COST from Product INTO cost; 
+price=cost*v_qty;
+SELECT (Sysdate-Join_Date) INTO d from Customer
+WHERE Customer.cust_id=cust_id;
+ 
+IF (d<30) THEN price=0.95*cost*v_qty;
+ENDIF
+ 
+SELECT (Sysdate-Last_Visit_Date) INTO d from Customer
+WHERE Customer.cust_id=cust_id;
+ 
+IF (d<10) THEN price=0.95*price;
+ENDIF
+ 
+SELECT (Sysdate-Last_Sold_Date) INTO d from Product
+WHERE Product.PROD_ID=Prod_id
+IF (d>20) THEN price=0.9*price;
+ENDIF
+ 
+DBMS.output_line("The bill is of amount:"||toChar(price));
+END
+ 
+END
+
+Ans 2)
+
+create or replace procedure Avg_calc_souvik(cust_id IN number,prod_id IN number,quantity IN number) is
+p_av number;
+p_cost number;
+p_price number;
+p_pname number;
+p_pid number;
+begin
+	select avg(cost) into p_av from product_souvik where red_flag<>'True'; 
+	select cost into p_cost from product_souvik a where a.prod_id=Avg_calc_souvik.prod_id;
+	p_price := p_cost;
+	if  p_cost>p_av then
+		select cost*0.5 into p_price from product_souvik b where b.prod_id=Avg_calc_souvik.prod_id;
+        dbms_output.put_line('Price :' || p_price);		
+	end if;
+	elsif p_cost<p_av then
+		select cost*0.8 into p_price from product_souvik b where Avg_calc_souvik.quantity>=2 and b.prod_id=Avg_calc_souvik.prod_id;
+        dbms_output.put_line('Price :' || p_price);
+	end;
+    select prod_id into p_pid from product_souvik a where a.last_sold_date in (select min(b.last_sold_date) from product_souvik b where b.red_flag<>'True') and rownum=1 order by Stock_Quantity desc;
+    select prod_name into p_pname from product_souvik a where a.last_sold_date in (select min(b.last_sold_date) from product_souvik b where b.red_flag<>'True') and rownum=1 order by Stock_Quantity desc;
+    select cost*0.75 into p_price from product_souvik b where b.prod_id=p_pid;
+	dbms_output.put_line('Buy the product ' || p_pname || 'at Rs. '|| p_price);
+end;

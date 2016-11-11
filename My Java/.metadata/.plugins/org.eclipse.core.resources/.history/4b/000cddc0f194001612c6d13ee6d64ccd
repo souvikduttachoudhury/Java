@@ -1,0 +1,18 @@
+class Parent{
+	void p_method(){
+		System.out.println("Inside parent method");
+	}
+}
+class Child extends Parent{
+	void p_method(){
+		System.out.println("Inside child method");
+	}
+}
+public class Inheritence {
+	public static void main(String args[]){
+		Child ch=new Child(); 
+		ch.p_method();
+		Parent p=new Parent();
+		p.p_method();
+	}
+}

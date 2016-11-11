@@ -1,0 +1,16 @@
+package pkg1;
+interface Animal{
+	void set_age();
+}
+class Camel implements Animal{
+	public void set_age(){
+		//age=20;
+		System.out.println("Inside Camel");
+	}
+}
+public class Interfacing {
+	public static void main(String args[]){
+		Animal a=new Camel();
+		a.set_age();
+	}
+}

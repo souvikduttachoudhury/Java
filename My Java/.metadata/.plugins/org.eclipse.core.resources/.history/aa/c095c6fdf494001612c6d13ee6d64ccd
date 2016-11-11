@@ -1,0 +1,14 @@
+package pkg1;
+
+class Checkaccess{
+	 protected void c_method(){
+		 System.out.println("Inside package pkg1");
+	 }
+ }
+public class accm{
+     public static void main(String args[]){
+    	 Checkaccess cks1=new Checkaccess();
+    	 cks1.c_method();
+     }
+}
+

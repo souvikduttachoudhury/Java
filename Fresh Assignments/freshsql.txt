@@ -1,0 +1,52 @@
+//Souvik Dutta Choudhury
+//Employee code:1799
+
+1) desc salespeople_souvik;
+
+2) select * from customers_souvik where rating=100;
+
+3) select * from customers_souvik where city is NULL;
+
+4) select * from orders_souvik where amount in (select max(amount) from orders_souvik group by snum,odate);
+
+5) select * from orders_souvik where snum in(select snum from customers_souvik) order by cnum desc;
+
+6) select * from salespeople_souvik where snum in (select snum from orders_souvik);
+
+7) select * from customers_souvik where snum in (select snum from customers_souvik);
+
+8) select sname,snum from salespeople_souvik a where 1<(select count(*) from customers_souvik where snum=a.snum);
+
+9) select snum,count(snum) from orders_souvik group by snum order by count(snum);
+
+10)select * from customers_souvik where 1<=(select count(*) from customers_souvik where city='San Jose');
+
+11)select * from customers_souvik a,salespeople_souvik b where a.city=b.city;
+
+12)select snum,max(amount) from orders_souvik group by snum;
+
+13)select snum,max(amount) from orders_souvik where odate='03-OCT-96' group by snum;
+
+14)select a.cname,b.comm from customers_souvik a,salespeople_souvik b where a.snum=b.snum and b.comm>.12;
+
+15)select * from orders_souvik where cnum in (select cnum from customers_souvik where cname='Cisneros');
+
+16)select count(cnum) from customers_souvik a where cnum in (select cnum from customers_souvik b where b.rating>(select avg(rating) from customers_souvik where city='San Jose'));
+
+17)select * from salespeople_souvik a where 1=(select count(cnum) from customers_souvik where snum=a.snum);
+
+18) select * from orders_souvik where amount>1000;
+
+19) select * from customers_souvik where city<>'San Jose' and rating>200;
+
+20)select odate from orders_souvik where amount in (select max(amount) from orders_souvik);
+
+21)select * from customers_souvik where cnum in (select cnum from orders_souvik a where (select count(cnum) from orders_souvik where cnum=a.cnum)=(select max(cnt) from (select cnum,count(cnum) as cnt from orders_souvik group by cnum)));
+
+22)select snum,count(snum) from orders_souvik group by snum having sum(amount)>(select max(amount) from orders_souvik);
+
+23) select sname,snum from salespeople_souvik a where 1<=(select count(*) from customers_souvik where snum=a.snum);
+
+24)select * from salespeople_souvik a where snum<>all(select snum from customers_souvik where city=a.city);
+
+25)select * from orders_souvik where amount>(select avg(amount) from orders_souvik where odate='04-OCT-96'); 

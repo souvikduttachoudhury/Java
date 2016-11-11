@@ -1,0 +1,1341 @@
+Practice 1:-
+1) The PLSQL block which will run succesfully is (d)
+   
+2) BEGIN
+   dbms_output.put_line('Hello World');
+   END;
+   
+Practice 2:-
+
+1) (a),(b),(e),(g) are the valid identifiers.
+
+2)  (a),(b) and (d) are valid identifiers.  
+
+3) (a)
+
+4)
+     Declare
+     today date:=sysdate;
+     tomorrow today%type;
+     BEGIN
+     dbms_output.put_line('Hello World');
+	 dbms_output.put_line('Today is:'||today);
+	 tomorrow:=today+1.000000;
+	 dbms_output.put_line('Tomorrow is:'||tomorrow);
+     END;
+	 
+5)   Variable basic_percent number;
+	 Variable pf_percent number;
+     Declare
+     today date:=sysdate;
+     tomorrow today%type;
+     BEGIN
+     dbms_output.put_line('Hello World');
+	 dbms_output.put_line('Today is:'||today);
+	 dbms_output.put_line('Tomorrow is:'||tomorrow);
+	 :basic_percent:=45;
+	 :pf_percent:=12;
+     END;
+	 Print basic_percent;
+	 Print pf_percent;
+	 
+Practice 3:-
+
+1)   a) 2
+	 b) Western Europe
+	 c) 2
+	 d) Product 11001 is in stock.
+	 e) Western Europe
+
+2)   a)201
+	 b)Unisports
+	 c)GOOD
+	 d)Womansport
+	 e)undefined
+	 f)EXCELLENT
+	 
+3)   a)	 //Variable basic_percent number;
+		 //Variable pf_percent number;
+		 
+	 b)  /*:basic_percent:=45; 
+		 :pf_percent:=12;*/ 
+		 
+	 c)	 Variable basic_percent number;
+		 Variable pf_percent number;
+	     Declare
+		 today date:=sysdate;
+		 tomorrow today%type;
+		 fname varchar2(15);
+		 emp_sal number(10);
+		 BEGIN
+		 dbms_output.put_line('Hello World');
+		 dbms_output.put_line('Today is:'||today);
+		 dbms_output.put_line('Tomorrow is:'||tomorrow);
+		 :basic_percent:=45; 
+		 :pf_percent:=12;  
+		 END;
+		 Print basic_percent;
+		 Print pf_percent;
+		 
+	 d)  Variable basic_percent number;
+		 Variable pf_percent number;
+	     Declare
+		 today date:=sysdate;
+		 tomorrow today%type;
+		 fname varchar2(15);
+		 emp_sal number(10);
+		 BEGIN
+		 dbms_output.put_line('Today is:'||today);
+		 dbms_output.put_line('Tomorrow is:'||tomorrow);
+		 :basic_percent:=45; 
+		 :pf_percent:=12;  
+		 SELECT first_name,salary INTO fname,emp_sal FROM employees WHERE employee_id=110;
+		 END;
+		 Print basic_percent;
+		 Print pf_percent;	 
+		 
+	e)   Variable basic_percent number;
+		 Variable pf_percent number;
+		 Declare
+		 today date:=sysdate;
+		 tomorrow today%type;
+		 fname varchar2(15);
+		 emp_sal number(10);
+		 BEGIN
+		 dbms_output.put_line('Today is:'||today);
+		 dbms_output.put_line('Tomorrow is:'||tomorrow);
+		 :basic_percent:=45; 
+		 :pf_percent:=12;  
+		 SELECT first_name,salary INTO fname,emp_sal FROM employees WHERE employee_id=110;
+		 dbms_output.put_line('Hello '||fname);
+		 END;
+		 Print basic_percent;
+		 Print pf_percent;	
+   
+    f)   Variable basic_percent number;
+		 Variable pf_percent number;  
+		 Declare
+		 today date:=sysdate;
+		 tomorrow today%type;
+		 fname varchar2(15);
+		 emp_sal number(10);
+		 pf number(10);
+		 BEGIN
+		 dbms_output.put_line('Today is:'||today);
+		 dbms_output.put_line('Tomorrow is:'||tomorrow);
+		 :basic_percent:=45; 
+		 :pf_percent:=12;  
+		 SELECT first_name,salary INTO fname,emp_sal FROM employees WHERE employee_id=110;
+		 dbms_output.put_line('Hello '||fname);
+		 select emp_sal*(:basic_percent/100)*(pf_percent/100) into pf from employees WHERE employee_id=110;
+		 END;
+		 Print basic_percent;
+		 Print pf_percent;
+		 
+	g)   Variable basic_percent number;
+		 Variable pf_percent number;  
+		 Declare
+		 today date:=sysdate;
+		 tomorrow today%type;
+		 fname varchar2(15);
+		 emp_sal number(10);
+		 pf number(10);
+		 BEGIN
+		 :basic_percent:=45; 
+		 :pf_percent:=12;  
+		 SELECT first_name,salary INTO fname,emp_sal FROM employees_souvik WHERE employee_id=110;
+		 dbms_output.put_line('Hello '||fname);
+		 select emp_sal*(:basic_percent/100)*(:pf_percent/100) into pf from employees_souvik WHERE employee_id=110;
+		 dbms_output.put_line('YOUR SALARY IS:' ||emp_sal);
+		 dbms_output.put_line('YOUR Contribution towards PF IS:' ||pf);
+		 END; 
+		 
+4)       Variable basic_percent number;
+		 Variable pf_percent number;
+		 Variable empno number(10);
+		 create or replace procedure pf_calc_souvik(empno in number,basic_percent in number,pf_percent in number) is
+		 today date:=sysdate;
+		 tomorrow today%type;
+		 fname varchar2(15);
+		 emp_sal number(10);
+		 pf number(10);
+		 BEGIN
+		 :basic_percent:=45; 
+		 :pf_percent:=12;		 
+		 SELECT first_name,salary INTO fname,emp_sal FROM employees_souvik WHERE employee_id=pf_calc.empno;
+		 select emp_sal*(:basic_percent/100)*(:pf_percent/100) into pf from employees_souvik WHERE employee_id=pf_calc.empno;
+		 dbms_output.put_line('Hello '||fname);
+		 dbms_output.put_line('YOUR SALARY IS:' ||emp_sal);
+		 dbms_output.put_line('YOUR Contribution towards PF IS:' ||pf);
+		 END; 
+
+         accept empno prompt 'Please enter your employee number.';		 
+		 
+		 
+Practice 4:-
+		 
+1)		 
+		 Declare
+		 max_deptno number;
+		 BEGIN  
+		 select max(department_id) into max_deptno from departments;
+		 dbms_output.put_line('The maximum department ID is:' ||max_deptno);
+		 END;
+
+2)       variable dept_id number;
+		 Declare
+		 max_deptno number;
+		 dept_name departments.department_name%type:='Education';
+		 BEGIN  
+		 select max(department_id) into max_deptno from departments;
+		 :dept_id:=max_deptno+10;
+		 insert into departments values(:dept_id,dept_name,null);
+		 dbms_output.put_line('The maximum department ID is:' ||max_deptno);
+		 dbms_output.put_line('SQL%ROWCOUNT gives:' ||SQL%ROWCOUNT);
+		 END;	
+
+3)		 variable dept_id number:=15;
+		 begin
+		 update departments set location_id=3000 where department_id=:dept_id;
+		 dbms_output.put_line(sql%rowcount);
+		 end;
+		 
+		c)  variable dept_id number:=15;
+			declare dept_name varchar2(20);
+			begin
+			update departments set location_id=3000 where department_id=:dept_id;
+			select department_name into dept_name from departments where department_id=:dept_id;
+			dbms_output.put_line('The department newly added is '||dept_name);
+			end;
+			
+		 d) variable dept_id number:=15;
+			declare dept_name varchar2(20);
+			begin
+			update departments set location_id=3000 where department_id=:dept_id;
+			select department_name into dept_name from departments where department_id=:dept_id;
+			delete from departments where department_id=:dept_id;
+			dbms_output.put_line('The department newly added is '||dept_name);
+			end;
+		 
+4)		variable emp_authorization number;
+		begin
+		select employee_id into :emp_authorization from employees_souvik where department_id in (select department_id from departments where department_name='Human Resources');
+		dbms_output.put_line('The employee id is '||:emp_authorization);
+		end;
+		
+Practice 5:-
+
+1)		create table messages_souvik(serial number);
+			  
+		declare
+		cursor c1 is select * from messages_souvik;
+		begin
+		for i in 1..10 loop
+		if (i<>6 and i<>8) then
+		insert into messages_souvik values(i);
+		end if;
+		end loop;
+		commit;
+		for i in c1 loop
+		dbms_output.put_line(i.serial); 
+		end loop;
+		end;
+		
+2)      alter table employees_souvik add stars varchar2(50);
+
+		declare
+		cursor c1 is select * from employees_souvik;
+		id number;
+		empsal number;
+		star_ct int;
+		str varchar2(50):='';
+		begin
+		for i in c1 loop
+		id:=i.employee_id;
+		empsal:=i.salary;
+		star_ct:=empsal/1000;
+		for i in 1..star_ct loop
+		str:=str||'*';
+		end loop;
+		update employees_souvik set stars=str where employee_id=id;
+		str:='';
+		end loop;
+		for i in c1 loop
+		dbms_output.put_line('Id: '||i.employee_id||' Name: '||i.first_name||' Salary : '||i.salary||' Stars: '||i.stars);
+		end loop;
+		end;
+		
+Practice 6:-
+
+1)		
+		define countryid='CA';
+		declare
+		country_record countries_souvik%rowtype;
+		begin
+		select * into country_record from countries_souvik where country_code='&countryid';
+		dbms_output.put_line('Country_Code is: '||country_record.country_code|| ' Name: '||country_record.country_name||' Language: '||country_record.country_language);
+		end;
+		
+2)	
+		declare
+		type dept_table_type is table of departments.department_name%type index by varchar2(20);
+		my_dept_table dept_table_type;
+		cursor c1 is select * from departments;
+		begin
+		for i in c1 loop
+		my_dept_table(i.department_id):=i.department_name;
+		end loop;
+		for i in c1 loop
+		dbms_output.put_line('Department :'||i.department_id||' is '||my_dept_table(i.department_id));
+		end loop;
+		end;
+		
+		
+3)		declare
+		type dept_table_type is table of departments%rowtype index by varchar2(20);
+		my_dept_table dept_table_type;
+		cursor c1 is select * from departments;
+		begin
+		for i in c1 loop
+		my_dept_table(i.department_id).department_name:=i.department_name;
+		my_dept_table(i.department_id).location_id:=i.location_id;
+		end loop;
+		for i in c1 loop
+		dbms_output.put_line('Department :'||i.department_id||' is '||' Name: '||my_dept_table(i.department_id).department_name||' Location: '||my_dept_table(i.department_id).location_id);
+		end loop;
+		end;		
+		
+4)      declare
+		type dept_table_type is table of departments%rowtype index by varchar2(20);
+		type ename_table_type is table of varchar2(50);
+		ename_table ename_table_type;
+		my_dept_table dept_table_type;
+		cursor c1 is select * from departments;
+		begin
+		for i in c1 loop
+		my_dept_table(i.department_id).department_name:=i.department_name;
+		my_dept_table(i.department_id).location_id:=i.location_id;
+		end loop;
+		for i in c1 loop
+		dbms_output.put_line('Department :'||i.department_id||' is '||' Name: '||my_dept_table(i.department_id).department_name||' Location: '||my_dept_table(i.department_id).location_id);
+		end loop;
+		end;		
+		
+Practice 7:-
+
+1)		 accept n prompt 'Enter the value of n: ';
+		 define p_num=&n;
+         declare
+		 num number:=&p_num;
+		 sal employees_souvik.salary%type;
+		 cursor emp_cursor is select unique salary from employees_souvik where rownum<=num order by salary desc;
+		 cursor c1 is select salary from top_salaries_souvik;
+		 begin
+		 open emp_cursor;
+		 fetch emp_cursor into sal;
+		 while(emp_cursor%found) loop
+		 insert into top_salaries_souvik values(sal);
+		 fetch emp_cursor into sal;
+		 end loop;
+		 close emp_cursor;
+		 for i in c1 loop
+		 dbms_output.put_line(i.salary);
+		 end loop;
+		 end;
+		 
+2)		 define p_deptno=&var1;
+		 declare
+		 deptno number:=&p_deptno;
+		 cursor emp_cursor is select last_name,salary,manager_id from employees_souvik where department_id=deptno;
+		 begin
+		 for i in emp_cursor loop
+		 if (i.salary>5000 and (i.manager_id=101 or i.manager_id=124)) then
+		 dbms_output.put_line(i.last_name||' Due for a raise.');
+		 else
+		 dbms_output.put_line(i.last_name||' Not due for a raise.');
+		 end if;
+		 end loop;
+		 end;
+		 
+3)		 declare
+		 cursor dept_cursor is select department_id,department_name from departments where department_id<100 order by department_id;
+		 cursor emp_cursor(department_number number) is select last_name,job_id,hire_date,salary from employees_souvik where employee_id<120 and department_id=department_number;
+		 dep dept_cursor%rowtype;
+		 emp emp_cursor%rowtype;
+		 begin
+		 open dept_cursor;
+		 fetch dept_cursor into dep;
+		 while(dept_cursor%found) loop
+		 dbms_output.put_line('Department ID is: '||dep.department_id||' Department Name is: '||dep.department_name);
+		 open emp_cursor(dep.department_id);
+		 fetch emp_cursor into emp;
+		 while(emp_cursor%found) loop
+		 dbms_output.put_line('The employees working in this department are:-');
+		 dbms_output.put_line('Last Name is: '||emp.last_name||' job ID is: '||emp.job_id||' hire Date is: '||emp.hire_date||' Salary is $'||emp.salary);
+		 fetch emp_cursor into emp;
+		 end loop;
+		 close emp_cursor;
+		 fetch dept_cursor into dep;
+		 end loop;
+		 close dept_cursor;
+		 end;
+		 
+4)		 define emp_deptid=&did;
+		 declare
+		 dept number:=&emp_deptid;
+		 type name_type is table of varchar2(100) index by varchar2(20);
+		 ename name_type;
+		 cursor emp_records is select employee_id,salary,first_name,last_name from employees_souvik where department_id=dept for update of salary;
+		 rec emp_records%rowtype;
+		 emp_sal number;
+		 emp_fname varchar2(20);
+		 emp_lname varchar2(20);
+		 c_range1 constant number:=6500;
+		 c_hike1 constant number:=20;
+		 c_range2 constant number:=9500;
+		 c_hike2 constant number:=15;
+		 c_range3 constant number:=12000;
+		 c_hike3 constant number:=8;
+		 c_hike4 constant number:=3;
+		 begin
+		 if(dept=20 or dept=60 or dept=80 or dept=100 or dept=110) then
+		 open emp_records;
+		 fetch emp_records into rec;
+		 while(emp_records%found) loop
+		 emp_sal:=rec.salary;
+		 emp_fname:=rec.first_name;
+		 emp_lname:=rec.last_name;
+		 case
+		 when emp_sal<c_range1 then
+		 ename(rec.employee_id):=emp_fname||' '||emp_lname;
+		 emp_sal:=emp_sal+(emp_sal*c_hike1)/100;
+		 update employees_souvik set salary=emp_sal where current of emp_records;
+		 dbms_output.put_line('No of rows updated: '||sql%rowcount||'. Hike provided is '||c_hike1||'%.');
+		 when emp_sal between c_range1 and c_range2 then
+		 ename(rec.employee_id):=emp_fname||' '||emp_lname;
+		 emp_sal:=emp_sal+(emp_sal*c_hike2)/100;
+		 update employees_souvik set salary=emp_sal where current of emp_records;
+		 dbms_output.put_line('No of rows updated: '||sql%rowcount||'. Hike provided is '||c_hike2||'%.');
+		 when emp_sal between c_range2 and c_range3 then
+		 ename(rec.employee_id):=emp_fname||' '||emp_lname;
+		 emp_sal:=emp_sal+(emp_sal*c_hike3)/100;
+		 update employees_souvik set salary=emp_sal where current of emp_records;
+		 dbms_output.put_line('No of rows updated: '||sql%rowcount||'. Hike provided is '||c_hike3||'%.');
+		 when emp_sal>c_range3 then
+		 ename(rec.employee_id):=emp_fname||' '||emp_lname;
+		 emp_sal:=emp_sal+(emp_sal*c_hike4)/100;
+		 update employees_souvik set salary=emp_sal where current of emp_records;
+		 dbms_output.put_line('No of rows updated: '||sql%rowcount||'. Hike provided is '||c_hike4||'%.');
+		 end case;
+		 fetch emp_records into rec;
+		 end loop;
+		 close emp_records;
+		 else
+		 dbms_output.put_line('SORRY, NO SALARY REVISIONS FOR EMPLOYEES IN THIS DEPARTMENT');
+		 end if;
+		 end;
+		 
+Practice 8:-
+
+1)		truncate table messages;
+		define sal=6000;
+		declare
+		cursor c1 is select * from messages_souvik;
+		ename employees_souvik.last_name%type;
+		emp_sal employees_souvik.salary%type:=&sal;
+		begin
+		begin
+		select last_name into ename from employees_souvik where salary=emp_sal;
+		if(sql%rowcount=1) then
+		insert into messages_souvik values('The employee name is '||ename||' and the salary is $'||emp_sal);
+		end if;
+		exception
+		when no_data_found then
+		insert into messages_souvik values('No employee with a salary of $'||emp_sal);
+		when too_many_rows then
+		insert into messages_souvik values('More than one employee with a salary of $'||emp_sal);
+		when others then
+		insert into messages_souvik values('Some other error occured');
+		end;
+		for i in c1 loop
+		dbms_output.put_line('The message is :'||i.MSG);
+		end loop;
+		end;
+		
+2)		declare
+		childrecord_exists exception;
+		pragma exception_init(childrecord_exists,-02292);
+		begin
+		delete from departments where department_id=60;
+		dbms_output.put_line('Deleting Department 60...');
+		exception
+		when childrecord_exists then
+		dbms_output.put_line('Cannot Delete this department.There are employees in this department');
+		end;
+		 
+3)		 define emp_deptid=&did;
+		 declare
+		 no_such_employee exception;
+		 dept number:=&emp_deptid;
+		 type name_type is table of varchar2(100) index by varchar2(20);
+		 ename name_type;
+		 dname varchar2(20);
+		 ct number:=0;
+		 cursor emp_records is select employee_id,salary,first_name,last_name from employees_souvik where department_id=dept for update of salary;
+		 rec emp_records%rowtype;
+		 emp_sal number;
+		 emp_fname varchar2(20);
+		 emp_lname varchar2(20);
+		 c_range1 constant number:=6500;
+		 c_hike1 constant number:=20;
+		 c_range2 constant number:=9500;
+		 c_hike2 constant number:=15;
+		 c_range3 constant number:=12000;
+		 c_hike3 constant number:=8;
+		 c_hike4 constant number:=3;
+		 begin
+		 select department_name into dname from departments where department_id=dept;
+		 if(dept=20 or dept=60 or dept=80 or dept=100 or dept=110) then
+		 open emp_records;
+		 fetch emp_records into rec;
+		 while(emp_records%found) loop
+		 ct:=ct+1;
+		 if(rec.employee_id NOT BETWEEN 100 and 206) then
+		 raise no_such_employee;
+		 end if;
+		 emp_sal:=rec.salary;
+		 emp_fname:=rec.first_name;
+		 emp_lname:=rec.last_name;
+		 case
+		 when emp_sal<c_range1 then
+		 ename(rec.employee_id):=emp_fname||' '||emp_lname;
+		 emp_sal:=emp_sal+(emp_sal*c_hike1)/100;
+		 update employees_souvik set salary=emp_sal where current of emp_records;
+		 dbms_output.put_line('No of rows updated: '||sql%rowcount||'. Hike provided is '||c_hike1||'%.');
+		 when emp_sal between c_range1 and c_range2 then
+		 ename(rec.employee_id):=emp_fname||' '||emp_lname;
+		 emp_sal:=emp_sal+(emp_sal*c_hike2)/100;
+		 update employees_souvik set salary=emp_sal where current of emp_records;
+		 dbms_output.put_line('No of rows updated: '||sql%rowcount||'. Hike provided is '||c_hike2||'%.');
+		 when emp_sal between c_range2 and c_range3 then
+		 ename(rec.employee_id):=emp_fname||' '||emp_lname;
+		 emp_sal:=emp_sal+(emp_sal*c_hike3)/100;
+		 update employees_souvik set salary=emp_sal where current of emp_records;
+		 dbms_output.put_line('No of rows updated: '||sql%rowcount||'. Hike provided is '||c_hike3||'%.');
+		 when emp_sal>c_range3 then
+		 ename(rec.employee_id):=emp_fname||' '||emp_lname;
+		 emp_sal:=emp_sal+(emp_sal*c_hike4)/100;
+		 update employees_souvik set salary=emp_sal where current of emp_records;
+		 dbms_output.put_line('No of rows updated: '||sql%rowcount||'. Hike provided is '||c_hike4||'%.');
+		 end case;
+		 fetch emp_records into rec;
+		 end loop;
+		 if(dname='HR' and ct>1) then
+		 raise too_many_rows;
+		 end if;
+		 close emp_records;
+		 else
+		 dbms_output.put_line('SORRY, NO SALARY REVISIONS FOR EMPLOYEES IN THIS DEPARTMENT');
+		 end if;
+		 exception
+		 when no_such_employee then
+		 dbms_output.put_line('No such employee');
+		 when too_many_rows then
+		 dbms_output.put_line('Too many rows');
+		 end;
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Procedures		 
+
+Practice 1:-
+
+1)       create or replace procedure add_job_souvik(id IN varchar2,title IN varchar2) is
+		 p_job_id varchar2(10):='abcd';
+		 p_job_title varchar2(50):='pqrs';
+		 begin
+		 insert into jobs_souvik(job_id,job_title) values(add_job_souvik.id,add_job_souvik.title);
+		 commit;
+		 select job_id,job_title into p_job_id,p_job_title from jobs_souvik where job_id=add_job_souvik.id;
+		 dbms_output.put_line('The row inserted has Job ID: '||p_job_id||' and Title as '||p_job_title);
+		 end;
+         
+2)		 create or replace procedure upd_job_souvik(id IN varchar2,title IN varchar2) is
+		 p_job_id varchar2(10):='';
+		 p_job_title varchar2(50):='';
+		 no_rows_updated exception;
+		 begin
+		 update jobs_souvik set job_title=upd_job_souvik.title where job_id=upd_job_souvik.id;
+		 if(sql%rowcount=0) then
+		 raise no_rows_updated;
+		 end if;
+		 commit;
+		 select job_id,job_title into p_job_id,p_job_title from jobs_souvik where job_id=upd_job_souvik.id;
+		 dbms_output.put_line('The row updated has Job ID: '||p_job_id||' and Title as '||p_job_title);
+		 exception
+		 when no_rows_updated then
+		 dbms_output.put_line('No rows updated');
+		 end;
+		 
+3)		 create or replace procedure del_job_souvik(id IN varchar2) is
+		 p_job_id varchar2(10):='';
+		 p_job_title varchar2(50):='';
+		 no_rows_selected exception;
+		 no_rows_deleted exception;
+		 begin
+		 delete from jobs_souvik where job_id=del_job_souvik.id;
+		 if(sql%rowcount=0) then
+		 raise no_rows_deleted;
+		 end if;
+		 commit;
+		 select job_id,job_title into p_job_id,p_job_title from jobs_souvik where job_id=del_job_souvik.id;
+		 if(sql%rowcount<>0) then
+		 raise no_rows_selected;
+		 end if;
+		 exception
+		 when no_rows_selected then
+		 dbms_output.put_line('No rows selected');
+		 when no_rows_deleted then
+		 dbms_output.put_line('No rows deleted');
+		 end;
+
+4)		  create or replace procedure get_employee_souvik(emp_id in number,p_salary out number,p_job_id out varchar2) is
+		  begin
+		  select salary,job_id into p_salary,p_job_id from employees_souvik where employee_id=get_employee_souvik.emp_id;
+		  exception
+		  when no_data_found then
+		  dbms_output.put_line('No such data matching with the given employee ID');
+		  end;
+		  
+Practice 2:-
+
+1)		  create or replace function get_jobs_souvik(job_id in varchar2)
+		  return varchar2 is
+		  title varchar2(35); 
+		  begin
+	      select job_title into title from jobs_souvik where job_id=get_jobs_souvik.job_id;
+		  return(title);
+		  end;
+		  
+2)		  create or replace function get_annual_compen_souvik(salary in number,commision_pct in number)
+		  return number is
+		  p_sal number;
+		  begin
+		  if(salary is null) then
+		  p_sal:=0;
+		  elsif(commision_pct is null) then
+		  p_sal:=0;
+		  else
+		  p_sal:=(salary*12)+(commision_pct*salary*12);
+		  end if;
+		  return(p_sal);
+		  end;
+		  
+		  select employee_id,last_name,get_annual_compen_souvik(salary,20) from employees_souvik where department_id=30;
+		  
+		  
+3)		  create or replace function valid_dept_souvik(dept_id in number)
+		  return boolean is
+		  ct number:=0;
+		  begin
+		  select count(*) into ct  from departments where department_id=dept_id;
+		  if(ct=0) then
+		  return(false);
+		  else
+		  return(true);
+		  end if;
+		  end;
+
+		  create or replace procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number) is
+		  begin
+		  if(valid_dept_souvik(add_employee_souvik.department_id)) then
+		  insert into employees_souvik(employee_id,first_name,last_name,email,job_id,manager_id,salary,comm,department_id) values (add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,add_employee_souvik.email,add_employee_souvik.job_id,add_employee_souvik.manager_id,add_employee_souvik.salary,get_annual_compen_souvik(add_employee_souvik.salary,0),add_employee_souvik.department_id);
+		  else
+		  dbms_output.put_line('Invalid Department ID.Insertion not possible');
+		  end if;
+		  end;
+		  
+		  
+Practice 3:-
+
+1)		  create or replace package job_pkg as
+			procedure add_job_souvik(id IN varchar2,title IN varchar2);
+			procedure upd_job_souvik(id IN varchar2,title IN varchar2);
+			procedure del_job_souvik(id IN varchar2);
+			function get_jobs_souvik(job_id in varchar2)
+		  return varchar2;
+		  end job_pkg;
+		  
+		  create or replace package body job_pkg as
+		     procedure add_job_souvik(id IN varchar2,title IN varchar2) is
+			 p_job_id varchar2(10):='abcd';
+			 p_job_title varchar2(50):='pqrs';
+			 begin
+			 insert into jobs_souvik(job_id,job_title) values(add_job_souvik.id,add_job_souvik.title);
+			 commit;
+			 select job_id,job_title into p_job_id,p_job_title from jobs_souvik where job_id=add_job_souvik.id;
+			 dbms_output.put_line('The row inserted has Job ID: '||p_job_id||' and Title as '||p_job_title);
+			 end;
+			 procedure upd_job_souvik(id IN varchar2,title IN varchar2) is
+			 p_job_id varchar2(10):='';
+			 p_job_title varchar2(50):='';
+			 no_rows_updated exception;
+			 begin
+			 update jobs_souvik set job_title=upd_job_souvik.title where job_id=upd_job_souvik.id;
+			 if(sql%rowcount=0) then
+			 raise no_rows_updated;
+			 end if;
+			 commit;
+			 select job_id,job_title into p_job_id,p_job_title from jobs_souvik where job_id=upd_job_souvik.id;
+			 dbms_output.put_line('The row updated has Job ID: '||p_job_id||' and Title as '||p_job_title);
+			 exception
+			 when no_rows_updated then
+			 dbms_output.put_line('No rows updated');
+			 end;
+			 procedure del_job_souvik(id IN varchar2) is
+			 p_job_id varchar2(10):='';
+			 p_job_title varchar2(50):='';
+			 no_rows_selected exception;
+			 no_rows_deleted exception;
+			 begin
+			 delete from jobs_souvik where job_id=del_job_souvik.id;
+			 if(sql%rowcount=0) then
+			 raise no_rows_deleted;
+			 end if;
+			 commit;
+			 select job_id,job_title into p_job_id,p_job_title from jobs_souvik where job_id=del_job_souvik.id;
+			 if(sql%rowcount<>0) then
+			 raise no_rows_selected;
+			 end if;
+			 exception
+			 when no_rows_selected then
+			 dbms_output.put_line('No rows selected');
+			 when no_rows_deleted then
+			 dbms_output.put_line('No rows deleted');
+			 end;
+			 function get_jobs_souvik(job_id in varchar2)
+			 return varchar2 is
+			 title varchar2(35); 
+			 begin
+			 select job_title into title from jobs_souvik where job_id=get_jobs_souvik.job_id;
+			 return(title);
+			 end;
+		end job_pkg;	
+
+			begin
+			job_pkg.add_job_souvik('IT_SYSAN','SYSTEMS ANALYST');
+			end;
+			
+			select * from jobs_souvik where job_id='IT_SYSAN';
+			
+2)			create or replace package emp_pkg_souvik as
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number);
+				procedure get_employee_souvik(emp_id in number,p_salary out number,p_job_id out varchar2);
+			end emp_pkg_souvik;
+			
+			
+			create or replace package body emp_pkg_souvik as
+				function valid_dept_souvik(dept_id in number)
+				return boolean is
+				ct number:=0;
+				begin
+				select count(*) into ct  from departments where department_id=dept_id;
+				if(ct=0) then
+				return(false);
+				else
+				return(true);
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number) is
+				begin
+				if(valid_dept_souvik(add_employee_souvik.department_id)) then
+				insert into employees_souvik(employee_id,first_name,last_name,email,job_id,manager_id,salary,comm,department_id) values (add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,add_employee_souvik.email,add_employee_souvik.job_id,add_employee_souvik.manager_id,add_employee_souvik.salary,get_annual_compen_souvik(add_employee_souvik.salary,0),add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				procedure get_employee_souvik(emp_id in number,p_salary out number,p_job_id out varchar2) is
+				begin
+				select salary,job_id into p_salary,p_job_id from employees_souvik where employee_id=get_employee_souvik.emp_id;
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+			end emp_pkg_souvik;	
+			
+			 begin
+			 emp_pkg_souvik.add_employee_souvik(12,'Jane','Harris','Jahharis','IT_DBA',12,50000,15);
+			 end;
+			 
+			 begin
+			 emp_pkg_souvik.add_employee_souvik(13,'David','Smith','Dasmith','IT_DBA',12,60000,80);
+			 end;
+
+Practice 4:-
+
+1)			create or replace package emp_pkg_souvik as
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number);
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number);
+				procedure get_employee_souvik(emp_id in number,p_salary out number,p_job_id out varchar2);
+			end emp_pkg_souvik;			 
+			 
+			 create or replace package body emp_pkg_souvik as
+				function valid_dept_souvik(dept_id in number)
+				return boolean is
+				ct number:=0;
+				begin
+				select count(*) into ct  from departments where department_id=dept_id;
+				if(ct=0) then
+				return(false);
+				else
+				return(true);
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number) is
+				begin
+				if(valid_dept_souvik(add_employee_souvik.department_id)) then
+				insert into employees_souvik(employee_id,first_name,last_name,email,job_id,manager_id,salary,comm,department_id) values (add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,add_employee_souvik.email,add_employee_souvik.job_id,add_employee_souvik.manager_id,add_employee_souvik.salary,get_annual_compen_souvik(add_employee_souvik.salary,0),add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number) is
+				email varchar2(50);
+				begin
+				if(valid_dept_souvik(add_employee_souvik.department_id)) then
+				email:=substr(first_name,1,1)||substr(last_name,1,7);
+				email:=upper(email);
+				add_employee_souvik(add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,email,'IT_DBA',20,41000,add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				procedure get_employee_souvik(emp_id in number,p_salary out number,p_job_id out varchar2) is
+				begin
+				select salary,job_id into p_salary,p_job_id from employees_souvik where employee_id=get_employee_souvik.emp_id;
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+			end emp_pkg_souvik;
+			
+			
+			begin
+			 emp_pkg_souvik.add_employee_souvik(11,'Samuel','Joplin',30);
+			end;
+
+2)			create or replace package emp_pkg_souvik as
+				function get_employee_souvik(emp_id in employees_souvik.employee_id%type) return employees_souvik%rowtype;
+				function get_employee_souvik(family_name in employees_souvik.last_name%type) return employees_souvik%rowtype;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number);
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number);
+			    procedure print_employee_souvik(erow in employees_souvik%rowtype);
+			end emp_pkg_souvik;
+			
+			create or replace package body emp_pkg_souvik as
+				function valid_dept_souvik(dept_id in number)
+				return boolean is
+				ct number:=0;
+				begin
+				select count(*) into ct  from departments where department_id=dept_id;
+				if(ct=0) then
+				return(false);
+				else
+				return(true);
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number) is
+				begin
+				if(valid_dept_souvik(add_employee_souvik.department_id)) then
+				insert into employees_souvik(employee_id,first_name,last_name,email,job_id,manager_id,salary,comm,department_id) values (add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,add_employee_souvik.email,add_employee_souvik.job_id,add_employee_souvik.manager_id,add_employee_souvik.salary,get_annual_compen_souvik(add_employee_souvik.salary,0),add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number) is
+				email varchar2(50);
+				begin
+				if(valid_dept_souvik(add_employee_souvik.department_id)) then
+				email:=substr(first_name,1,1)||substr(last_name,1,7);
+				email:=upper(email);
+				add_employee_souvik(add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,email,'IT_DBA',20,41000,add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				function get_employee_souvik(emp_id in employees_souvik.employee_id%type) return employees_souvik%rowtype is
+				erow employees_souvik%rowtype;
+				begin
+				select * into erow from employees_souvik where employee_id=get_employee_souvik.emp_id;
+	            return(erow);
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+				function get_employee_souvik(family_name in employees_souvik.last_name%type) return employees_souvik%rowtype is
+				erow employees_souvik%rowtype;
+				begin
+				select * into erow from employees_souvik where last_name=get_employee_souvik.family_name;
+	            return(erow);
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+				procedure print_employee_souvik(erow in employees_souvik%rowtype) is
+				begin
+				dbms_output.put_line('Name: '||erow.first_name||' '||erow.last_name||' has Salary: $'||erow.salary);
+				end;
+			end emp_pkg_souvik;
+			
+			begin
+			emp_pkg_souvik.print_employee_souvik(emp_pkg_souvik.get_employee_souvik(110));
+			emp_pkg_souvik.print_employee_souvik(emp_pkg_souvik.get_employee_souvik('Joplin'));
+			end;
+			
+3)			create or replace package emp_pkg_souvik as
+				function get_employee_souvik(emp_id in employees_souvik.employee_id%type) return employees_souvik%rowtype;
+				function get_employee_souvik(family_name in employees_souvik.last_name%type) return employees_souvik%rowtype;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number);
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number);
+			    procedure print_employee_souvik(erow in employees_souvik%rowtype);
+				procedure init_departments;
+			end emp_pkg_souvik;			
+			
+			create or replace package body emp_pkg_souvik as
+				type boolean_tabtype is table of boolean index by varchar2(20);
+				boolean_tab boolean_tabtype;
+				function valid_dept_souvik(dept_id in number)
+				return boolean is
+				ct number:=0;
+				begin
+				select count(*) into ct  from departments where department_id=dept_id;
+				if(ct=0) then
+				return(false);
+				else
+				return(true);
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number) is
+				begin
+				if(valid_dept_souvik(add_employee_souvik.department_id)) then
+				insert into employees_souvik(employee_id,first_name,last_name,email,job_id,manager_id,salary,comm,department_id) values (add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,add_employee_souvik.email,add_employee_souvik.job_id,add_employee_souvik.manager_id,add_employee_souvik.salary,get_annual_compen_souvik(add_employee_souvik.salary,0),add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number) is
+				email varchar2(50);
+				begin
+				if(valid_dept_souvik(add_employee_souvik.department_id)) then
+				email:=substr(first_name,1,1)||substr(last_name,1,7);
+				email:=upper(email);
+				add_employee_souvik(add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,email,'IT_DBA',20,41000,add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				function get_employee_souvik(emp_id in employees_souvik.employee_id%type) return employees_souvik%rowtype is
+				erow employees_souvik%rowtype;
+				begin
+				select * into erow from employees_souvik where employee_id=get_employee_souvik.emp_id;
+	            return(erow);
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+				function get_employee_souvik(family_name in employees_souvik.last_name%type) return employees_souvik%rowtype is
+				erow employees_souvik%rowtype;
+				begin
+				select * into erow from employees_souvik where last_name=get_employee_souvik.family_name;
+	            return(erow);
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+				procedure print_employee_souvik(erow in employees_souvik%rowtype) is
+				begin
+				dbms_output.put_line('Name: '||erow.first_name||' '||erow.last_name||' has Salary: $'||erow.salary);
+				end;
+				procedure init_departments is
+				begin
+				for i in 1..300 loop
+				if(emp_pkg_souvik.valid_dept_souvik(i)) then
+				boolean_tab(i):=true;
+				else
+				boolean_tab(i):=false;
+				end if;
+				end loop;
+				for i in 1..300 loop
+				if(boolean_tab(i.department_id)) then
+				dbms_output.put_line('Department ID: '||i||' exists');
+				else
+				dbms_output.put_line('Department ID: '||i||' doesnt exist');
+				end if;
+				end loop;
+				end;
+				end emp_pkg_souvik;
+			
+4)			
+				create or replace package body emp_pkg_souvik as
+				type boolean_tabtype is table of boolean index by varchar2(20);
+				boolean_tab boolean_tabtype;
+				function valid_dept_souvik(dept_id in number)
+				return boolean is
+				ct number:=0;
+				begin
+				select count(*) into ct  from departments where department_id=dept_id;
+				if(ct=0) then
+				return(false);
+				else
+				return(true);
+				end if;
+				end;
+				function valid_dept_souvik_new(dept_id in number)
+				return boolean is
+				begin
+				if(boolean_tab(dept_id)) then
+				return true;
+				else
+				return false;
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number) is
+				begin
+				if(valid_dept_souvik_new(add_employee_souvik.department_id)) then
+				insert into employees_souvik(employee_id,first_name,last_name,email,job_id,manager_id,salary,comm,department_id) values (add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,add_employee_souvik.email,add_employee_souvik.job_id,add_employee_souvik.manager_id,add_employee_souvik.salary,get_annual_compen_souvik(add_employee_souvik.salary,0),add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number) is
+				email varchar2(50);
+				begin
+				if(valid_dept_souvik_new(add_employee_souvik.department_id)) then
+				email:=substr(first_name,1,1)||substr(last_name,1,7);
+				email:=upper(email);
+				add_employee_souvik(add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,email,'IT_DBA',20,41000,add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				function get_employee_souvik(emp_id in employees_souvik.employee_id%type) return employees_souvik%rowtype is
+				erow employees_souvik%rowtype;
+				begin
+				select * into erow from employees_souvik where employee_id=get_employee_souvik.emp_id;
+	            return(erow);
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+				function get_employee_souvik(family_name in employees_souvik.last_name%type) return employees_souvik%rowtype is
+				erow employees_souvik%rowtype;
+				begin
+				select * into erow from employees_souvik where last_name=get_employee_souvik.family_name;
+	            return(erow);
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+				procedure print_employee_souvik(erow in employees_souvik%rowtype) is
+				begin
+				dbms_output.put_line('Name: '||erow.first_name||' '||erow.last_name||' has Salary: $'||erow.salary);
+				end;
+				procedure init_departments is
+				begin
+				for i in 1..300 loop
+				if(emp_pkg_souvik.valid_dept_souvik(i)) then
+				boolean_tab(i):=true;
+				else
+				boolean_tab(i):=false;
+				end if;
+				end loop;
+				for i in 1..300 loop
+				if(boolean_tab(i)) then
+				dbms_output.put_line('Department ID: '||i||' exists');
+				else
+				dbms_output.put_line('Department ID: '||i||' doesnt exist');
+				end if;
+				end loop;
+				end;
+				end emp_pkg_souvik;	
+
+				begin
+				emp_pkg_souvik.add_employee_souvik(10,'James','Bond',15);
+				end;
+				
+				insert into employees_souvik values(15,'Detective','London');
+				commit;
+				
+				begin
+				emp_pkg_souvik.init_departments;
+				end;
+				
+				begin
+				emp_pkg_souvik.add_employee_souvik(10,'James','Bond',15);
+				end;
+				
+				delete from employees_souvik where department_id=15;
+				delete from departments where department_id=15;
+				commit;
+				
+5)				create or replace package emp_pkg_souvik as
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number);
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number);
+				procedure init_departments;
+				function get_employee_souvik(emp_id in employees_souvik.employee_id%type) return employees_souvik%rowtype;
+				function get_employee_souvik(family_name in employees_souvik.last_name%type) return employees_souvik%rowtype;
+			    procedure print_employee_souvik(erow in employees_souvik%rowtype);
+			    end emp_pkg_souvik;
+
+
+
+				create or replace package body emp_pkg_souvik as
+				type boolean_tabtype is table of boolean index by varchar2(20);
+				boolean_tab boolean_tabtype;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,email in varchar2,job_id in varchar2,manager_id in number,salary in number,department_id in number) is
+				begin
+				if(valid_dept_souvik_new(add_employee_souvik.department_id)) then
+				insert into employees_souvik(employee_id,first_name,last_name,email,job_id,manager_id,salary,comm,department_id) values (add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,add_employee_souvik.email,add_employee_souvik.job_id,add_employee_souvik.manager_id,add_employee_souvik.salary,get_annual_compen_souvik(add_employee_souvik.salary,0),add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				procedure add_employee_souvik(employee_id in number,first_name in varchar2,last_name in varchar2,department_id in number) is
+				email varchar2(50);
+				begin
+				if(valid_dept_souvik_new(add_employee_souvik.department_id)) then
+				email:=substr(first_name,1,1)||substr(last_name,1,7);
+				email:=upper(email);
+				add_employee_souvik(add_employee_souvik.employee_id,add_employee_souvik.first_name,add_employee_souvik.last_name,email,'IT_DBA',20,41000,add_employee_souvik.department_id);
+				else
+				dbms_output.put_line('Invalid Department ID.Insertion not possible');
+				end if;
+				end;
+				procedure init_departments is
+				begin
+				for i in 1..300 loop
+				if(emp_pkg_souvik.valid_dept_souvik(i)) then
+				boolean_tab(i):=true;
+				else
+				boolean_tab(i):=false;
+				end if;
+				end loop;
+				for i in 1..300 loop
+				if(boolean_tab(i)) then
+				dbms_output.put_line('Department ID: '||i||' exists');
+				else
+				dbms_output.put_line('Department ID: '||i||' doesnt exist');
+				end if;
+				end loop;
+				end;
+				function get_employee_souvik(emp_id in employees_souvik.employee_id%type) return employees_souvik%rowtype is
+				erow employees_souvik%rowtype;
+				begin
+				select * into erow from employees_souvik where employee_id=get_employee_souvik.emp_id;
+	            return(erow);
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+				function get_employee_souvik(family_name in employees_souvik.last_name%type) return employees_souvik%rowtype is
+				erow employees_souvik%rowtype;
+				begin
+				select * into erow from employees_souvik where last_name=get_employee_souvik.family_name;
+	            return(erow);
+				exception
+				when no_data_found then
+				dbms_output.put_line('No such data matching with the given employee ID');
+				end;
+				function valid_dept_souvik(dept_id in number)
+				return boolean is
+				ct number:=0;
+				begin
+				select count(*) into ct  from departments where department_id=dept_id;
+				if(ct=0) then
+				return(false);
+				else
+				return(true);
+				end if;
+				end;
+				function valid_dept_souvik_new(dept_id in number)
+				return boolean is
+				begin
+				if(boolean_tab(dept_id)) then
+				return true;
+				else
+				return false;
+				end if;
+				end;
+				procedure print_employee_souvik(erow in employees_souvik%rowtype) is
+				begin
+				dbms_output.put_line('Name: '||erow.first_name||' '||erow.last_name||' has Salary: $'||erow.salary);
+				end;
+				end emp_pkg_souvik;		
+
+
+Practice 5:-
+
+1)				create or replace procedure employee_report_souvik(out_dir in varchar2,out_fname in varchar2) is
+				filehandle utl_file.file_type;
+				cursor c1 is select e.* from employees_souvik e where salary>(select avg(salary) from employees_souvik where department_id=e.department_id);
+				emp c1%rowtype;
+				dept number;
+				begin
+				filehandle:=utl_file.fopen(out_dir,out_fname,'w');
+				utl_file.putf(filehandle,'SALARY REPORT :GENERATED ON %s\n',SYSDATE);
+				utl_file.new_line(filehandle);
+				for i in c1 loop
+				dept:=i.department_id;
+				utl_file.putf(filehandle,'employee %s %s earns:s\n',i.first_name,i.last_name,i.salary);
+				end loop;
+				utl_file.put_line(filehandle,'***END OF REPORT***');
+				utl_file.fclose(filehandle);
+				exception
+				when utl_file.invalid_path then
+				dbms_output.put_line('Path or the directory you specified doesnt exist');
+				when utl_file.invalid_filename then
+				dbms_output.put_line('The file with the given name doesnt exist');
+				WHEN UTL_FILE.internal_error THEN
+				DBMS_OUTPUT.PUT_LINE ('UTL_FILE: An internal error occurred.');
+				UTL_FILE.FCLOSE_ALL;
+				WHEN UTL_FILE.invalid_filehandle THEN
+				DBMS_OUTPUT.PUT_LINE ('UTL_FILE: The file handle was invalid.');
+				UTL_FILE.FCLOSE_ALL;
+				WHEN UTL_FILE.invalid_mode THEN
+				DBMS_OUTPUT.PUT_LINE ('UTL_FILE: An invalid open mode was given.');
+				UTL_FILE.FCLOSE_ALL;
+				WHEN UTL_FILE.invalid_operation THEN
+				DBMS_OUTPUT.PUT_LINE ('UTL_FILE: An invalid operation was attempted.');
+				UTL_FILE.FCLOSE_ALL;
+				WHEN UTL_FILE.read_error THEN
+				DBMS_OUTPUT.PUT_LINE ('UTL_FILE: A read error occurred.');
+				UTL_FILE.FCLOSE_ALL;
+				WHEN UTL_FILE.write_error THEN
+				DBMS_OUTPUT.PUT_LINE ('UTL_FILE: A write error occurred.');
+				UTL_FILE.FCLOSE_ALL;
+				WHEN others THEN
+				DBMS_OUTPUT.PUT_LINE ('Some other error occurred.');
+				UTL_FILE.FCLOSE_ALL;
+				end;
+				
+				begin
+				employee_report_souvik('C:\Users\Souvik.p\Documents\Fresh Assignments','sal_rpt1.txt');
+				end;
+				
+2)				create or replace procedure web_employee_report_souvik is
+				param_val  owa.vc_arr;
+				dept departments.department_name%type;
+				cursor c1 is select e.* from employees_souvik e where salary>(select avg(salary) from employees_souvik where department_id=e.department_id);
+				emp c1%rowtype;
+				begin
+				param_val (1) := 1;
+				owa.init_cgi_env (param_val);
+				htp.htmlopen;
+				htp.bodyopen;
+				htp.tableopen;
+				htp.tablerowopen;
+				htp.tabledata('Name');
+				htp.tabledata('Department');
+				htp.tabledata('Salary ($)');
+				htp.tablerowclose;
+				for i in c1 loop
+				select department_name into dept from departments where department_id=i.department_id;
+				htp.tablerowopen;
+				htp.tabledata(i.first_name||' '||i.last_name);
+				htp.tabledata(dept);
+				htp.tabledata(i.salary);
+				htp.tablerowclose;
+				end loop;
+				htp.tableclose;
+				htp.bodyclose;
+				htp.htmlclose;
+				owa_util.showpage;
+				end;
+				
+				
+3)				create or replace procedure schedule_report_souvik(p_interval in varchar2,p_minutes in number) is 
+				begin
+				DBMS_SCHEDULER.create_job (
+				job_name        => 'test_full_job_definition',
+				job_type        => 'PLSQL_BLOCK',
+				job_action      => 'BEGIN'||' EMPLOYEE_REPORT_souvik(''C:\Users\Souvik.p\Documents\Fresh Assignments'','||'''sal_rptXX_''||to_char(sysdate,''HH24-MI-SS'')||''.txt'');'||'END;',
+				start_date      => SYSTIMESTAMP,
+				repeat_interval => p_interval,
+				enabled         => TRUE);
+				END;	
+
+Practice 6:-	
+				
+1)				create or replace package table_pkg_souvik as
+				PROCEDURE make(table_name VARCHAR2, col_specs VARCHAR2);
+				PROCEDURE add_row(table_name VARCHAR2, col_values VARCHAR2,cols VARCHAR2:= NULL);
+				PROCEDURE upd_row(table_name VARCHAR2, set_values VARCHAR2,conditions VARCHAR2:= NULL);
+				PROCEDURE del_row(table_name VARCHAR2,conditions VARCHAR2:= NULL);
+				PROCEDURE remove(table_name VARCHAR2);
+				end table_pkg_souvik;
+				
+				create or replace package body table_pkg_souvik as
+				PROCEDURE make(table_name VARCHAR2, col_specs VARCHAR2) is
+				sql_stmt varchar2(100);
+				begin
+				sql_stmt:='create table '||table_name||'('||col_specs||')';
+				execute immediate sql_stmt using make.table_name,make.col_specs;
+				end;
+				PROCEDURE add_row(table_name VARCHAR2, col_values VARCHAR2,cols VARCHAR2) is
+				sql_stmt varchar2(100);
+				begin
+				if(add_row.cols is not null) then
+				sql_stmt:='insert into '||table_name||'('||cols||') values('||col_values||')';
+				execute immediate sql_stmt;
+				else
+				sql_stmt:='insert into '||table_name||' values(:col_values)';
+				execute immediate sql_stmt;
+				end if;
+				commit;
+				end;
+				PROCEDURE upd_row(table_name VARCHAR2, set_values VARCHAR2,conditions VARCHAR2:= NULL) is
+				sql_stmt varchar2(100);
+				begin
+				if(upd_row.conditions is not null) then
+				sql_stmt:='update '||table_name||' set '||set_values||' where '||conditions;
+				execute immediate sql_stmt;
+				else
+				sql_stmt:='update '||table_name||' set '||set_values;
+				execute immediate sql_stmt;
+				end if;
+				commit;
+				end;
+				PROCEDURE del_row(table_name VARCHAR2,conditions VARCHAR2:= NULL) is
+				sql_stmt varchar2(100);
+				begin
+				if(del_row.conditions is not null) then
+				sql_stmt:='delete from '||table_name||' where '||conditions;
+				execute immediate sql_stmt;
+				else
+				sql_stmt:='delete from '||table_name;
+				execute immediate sql_stmt;
+				end if;
+				commit;
+				end;
+				PROCEDURE remove(table_name VARCHAR2) is
+				sql_stmt varchar2(100);
+				begin
+				sql_stmt:='drop table '||table_name;
+				execute immediate sql_stmt;
+				end;
+				end table_pkg_souvik;
+				
+				execute make('my_contacts', 'id number(4), name varchar2(40)');
+				
+				execute add_row('my_contacts','1,''Geoff Gallus''','id, name');
+				execute add_row('my_contacts','2,''Nancy''','id, name');
+				execute add_row('my_contacts','3,''Sunitha Patel''','id,name');
+				execute add_row('my_contacts','4,''Valli Pataballa''','id,name');
+				
+				execute del_row('my_contacts','id=1');
+				
+				execute upd_row('my_contacts','name=''Nancy Greenberg''','id=2');
+				
+				execute remove('my_contacts');
+				
+				
+				
+				

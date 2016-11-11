@@ -1,0 +1,102 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 2, 2016, 1:01:50 PM
+    Author     : souvik.p
+*/
+.container{
+    height: 200px;
+}
+.row{
+    border:1px solid #000000;
+    font-family: Arial;
+    margin-top: 50px;
+    margin-left: 200px;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+.row:first-child{
+    margin-top: 40px;
+}
+.row:last-child{
+    margin-bottom: 10%;
+}
+section h2{
+    font-weight: bold;
+}
+.content-desc{
+    font-size: 13.25px;
+    color:#000000;
+}
+.content-desc-main{
+    font-size:17.5px;
+    font-family: Arial;
+}
+.content-desc-main-author{
+    color:#999999;
+    font-size: 15px;
+}
+.fav-head{
+    font-weight: bold;
+    margin-top: 75px;
+    padding-left: 40px;
+}
+.fav-head:last-child{
+    color:#999999;
+}
+.row li{
+    margin-top: 2.5px;
+    list-style: none;
+}
+.row li a{
+    text-decoration: none;
+    color:#0000ff;
+}
+.content-desc-table{
+    margin-left: -50px;
+}
+.content-row{
+    margin-top: 50px;
+}
+.content-row:first-child{
+   margin-top: 10%;
+}
+.content-desc-images{
+    margin-left: -75px;
+}
+.content-desc-images img{
+    width: 250px;
+    height: 150px;
+    margin-top: 20px;
+}
+aside input[type="text"]{
+    width: 150px;
+}
+aside input{
+    margin-top: 5px;
+}
+aside form{
+    margin-top: 20px;
+}
+.alr{
+    padding-top:1%; 
+    font-size: 15px;
+    color:#cc0000;
+    width: 600px;
+    border:1px solid #cccfff;
+    font-family: bold;
+    padding-left: 20px;
+    
+}
+.wrapper{
+    margin-top: 25px;
+}
+.wrapper a{
+    text-decoration: none;
+}
+.nav-tabs{
+    margin-left: 5%;
+}

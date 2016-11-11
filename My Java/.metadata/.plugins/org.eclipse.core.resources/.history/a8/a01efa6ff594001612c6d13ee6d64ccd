@@ -1,0 +1,12 @@
+package pkg1;
+
+
+public class accm{
+     public static void main(String args[]){
+    	 
+     }
+     public void c_method(){
+		 System.out.println("Inside package pkg1");
+	 }
+}
+

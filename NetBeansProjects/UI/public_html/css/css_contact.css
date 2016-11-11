@@ -1,0 +1,45 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 27, 2016, 2:41:46 PM
+    Author     : souvik.p
+*/
+#cnt_form table{
+    width: 500px;
+    margin: 75px auto;
+    background-color: #ffffff;
+}
+#cnt_form td{
+    padding: 20px;
+}
+#cnt_form td:first-child{
+     text-align: right;
+}
+#cnt_form tr:last-child td{
+    text-align: center;
+}
+#cnt_form table input{
+    width:200px;
+    box-shadow: 0.5px 0.5px 0.5px 0;
+    border-radius: 1px;
+    box-decoration-break: clone;
+}
+#cnt_form table input[type="submit"]{
+    width: 100px;
+    background-color: #ffff00;
+    border-color: #ffcc66
+}
+#cnt_form table input[type="submit"]:hover{
+    box-shadow: 0 4px 8px 0;
+}
+#cnt_form table select{
+    width: 200px;
+}
+#cnt_form table textArea{
+    width: 200px;
+}
+body{
+}

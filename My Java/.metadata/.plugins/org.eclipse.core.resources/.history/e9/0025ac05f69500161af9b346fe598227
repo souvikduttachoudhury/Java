@@ -1,0 +1,18 @@
+import java.util.*;
+
+
+public class Generics {
+	public static void main(String args[]){
+		TreeSet list=new TreeSet();
+		list.add("Apple");
+		list.add("Banana");
+		list.add("Mango");
+		list.add("Apple");
+		Iterator it=list.iterator();
+		while (it.hasNext() ) {
+		 System.out.print( it.next() + " " );
+		 	} 
+		//String fruit=list.get();
+		//System.out.println(fruit);
+	}
+}

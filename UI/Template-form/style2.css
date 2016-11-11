@@ -1,0 +1,107 @@
+*{
+	margin: 0;
+	padding: 0;
+	font: 13px "Open Sans", Arial, helvetica, san-serif;
+	color: #828BFF;
+}
+
+a {
+	text-decoration: none;
+	color: #828BFF;	
+}
+
+#wrapper {
+	max-width: 1240px;
+	margin: 15px auto 0 auto;
+	border: 1px solid #f00;
+	position: relative;
+	display: block;
+}
+
+header img {
+	display: inline;
+	float: left;
+	margin: 37px 50px 0 0 ;
+}
+
+.top-links {
+	float: right;
+	
+}
+
+.top-links li {
+	display: inline;
+	margin-left: 20px;
+}
+
+.main-nav {
+	float: left;
+	display: inline-block;
+	margin-top: 50px;
+}
+
+.main-nav li {
+	display: inline;
+	margin-right: 20px;
+}
+
+.action-links {
+	position: absolute;
+	top: 42px;
+	right: 0;
+}
+
+.action-links i {
+	font-size: 25px;
+}
+
+.action-links li {
+	display: inline;
+	margin: 20px 0 0 50px;
+}
+
+.action-links li:last-child {
+	margin-left: 5px;	
+}
+
+.overlay {
+	right: 100px;
+	bottom: 0;
+	padding: 15px;
+	position: absolute;
+	background-color: #333;
+	z-index: 10;
+	width: 30%;
+}
+
+table {
+	width: 500px;
+	margin: 50px auto
+}
+
+table td {
+	padding: 25px;
+	border: 1px solid #ccc;
+	
+}
+
+table td:first-child {
+	text-align: right;	
+}
+
+table input[type="password"] {
+	
+}
+
+table input {
+	border-radius: 5px;
+	width: 200px;
+	padding: 3px ;
+	border: 1px solid #828BFF;
+	background: #d0d0d0;
+	outline: none;
+}
+
+table select {
+	width: 200px;	
+}

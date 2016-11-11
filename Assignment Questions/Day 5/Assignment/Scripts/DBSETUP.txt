@@ -1,0 +1,18 @@
+1)	Open up the DOS command prompt
+2)	Download the contents of scripts.rar to c:\datapopulation
+
+3)	Type in the command sqlplus
+Give the user credentials in one go as training<no>/training<no>@<service_name>
+Eg :training3/training3@<service_name>
+P.S no is the roll no given to you on day1
+4)  Run the following commands
+
+Sql>@c:\datapopulation\table_script.sql
+Sql>@c:\datapopulation\populate_masters.prc
+Sql>@c:\ datapopulation\POPULATE_VENDOR_LIST_MEMBERS.prc
+Sql>@c:\datapopulation\ populate_wrapper.prc
+SQL>exec populate_wrapper(‘F’);
+	
+Your database is ready for use now…
+
+

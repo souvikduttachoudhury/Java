@@ -1,0 +1,100 @@
+package pkg1;
+
+import java.util.Scanner;
+
+class node{
+	private node next;
+	private String data;
+	
+	public node(){
+		this.next=null;
+		this.data="";
+	}
+	public String data(){
+		return this.data;
+	}
+	public node getNext() {
+		return next;
+	}
+	public void setNext(node next) {
+		this.next = next;
+	}
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
+	}
+}
+class LinkedList{
+	private node head;
+	public LinkedList(){
+		this.head=null;
+	}
+	public void addElement(String data){
+		if(head==null){
+			head=new node();
+			head.setData(data);
+			head.setNext(null);
+		}
+		else{
+			node temp=head;
+			while(temp.getNext()!=null){
+				temp=temp.getNext();
+			}
+			node t=new node();
+			t.setData(data);
+			t.setNext(null);
+			temp.setNext(t);
+		}
+	}
+	public String findMiddle(){
+		node slow=this.head;
+		node fast=this.head;
+		while(fast!=null && fast.getNext()!=null){
+			slow=slow.getNext();
+			fast=fast.getNext();
+			fast=fast.getNext();
+		}
+		return slow.getData();
+	}
+	public String findThirdLast(){
+		node p1=this.head;
+		if(p1==null){
+			return "Node not available";
+		}
+		node p2=p1.getNext();
+		if(p2==null){
+			return "Node not available";
+		}
+		node p3=p2.getNext();
+		if(p3==null){
+			return "Node not available";
+		}
+		while(p3.getNext()!=null){
+			p3=p3.getNext();
+			p2=p2.getNext();
+			p1=p1.getNext();
+		}
+		return p1.getData();
+	}
+}
+class LLImplementation{
+	public static void main(String args[]){
+		LinkedList l1=new LinkedList();
+		Scanner sc=new Scanner(System.in);
+		sc.useDelimiter(System.getProperty("line.separator"));
+		int choice=1;
+		while(choice==1){
+			System.out.println("Enter 1 to add element and 0 to exit:");
+			choice=sc.nextInt();
+			if(choice==1){
+				System.out.println("Enter the element");
+				String data=sc.next();
+				l1.addElement(data);
+			}
+		}
+		System.out.println("The middle element is ;"+l1.findMiddle());
+		System.out.println("The third last element is ;"+l1.findThirdLast());
+	}
+}

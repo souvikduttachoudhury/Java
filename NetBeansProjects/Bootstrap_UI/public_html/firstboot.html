@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Bootstrap Exercise</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/boot.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+        <link rel="javascript" type="text/javascript" href="js/bootstrap.js"/>
+        <link rel="javascript" type="text/javascript" href="js/npm.js"/>
+        
+        <script type="text/javascript">
+            $(document).ready(function(){
+            $("#btn2").click(function(){
+                //$(".wrapper").hide("slow",function(){
+                //});
+                $(".wrapper").load("");
+            });
+            console.log("ready");
+            });
+        </script>
+        <!--link rel="stylesheet" type="text/font" href="glyphicons-halflings-regular.svg"/-->
+    </head>
+    
+        <div class="wrapper">
+            <div class="nav-tabs">
+                <a href="firstboot.html" class="btn btn-danger btn-md"  role="button">Home</a>
+                <a id="btn2" href="#" class="btn btn-primary btn-md">Level2</a>
+                <a href="#" class="btn btn-primary btn-md">Level3</a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <aside class="col-lg-3">
+                            <div class="fav-head"><h4>Some Favourites</h4></div>
+                            <ul>
+                                <li>Celery Root</li>
+                                <li>Sphagetti Squash</li>
+                                <li>Killer Mushrooms</li>
+                            </ul>
+                        </aside>
+                        <section class="col-lg-9 col-md-12">
+                            <h2 id="fav-header">Wild and Wacky Vegetables</h2>
+                            <div class="content-desc">
+                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+                            </div>
+                        </section>
+                    </div>
+                </div>  
+                <div class="row">
+                    
+                    
+                    
+                    <div class="col-lg-12">
+                        <aside class="col-lg-3 col-md-12">
+                            <div class="fav-head"><h6>Some Favourites</h6></div>
+                            <ul>
+                                <li><a id="fav-head-1" onclick="change_head(this.id);"  href="javascript:void(0);">Celery Root</a></li>
+                                <li><a id="fav-head-2" onclick="change_head(this.id);" href="javascript:void(0)">Sphagetti Squash</a></li>
+                                <li><a id="fav-head-3" onclick="change_head(this.id);" href="javascript:void(0)">Killer Mushrooms</a></li>
+                            </ul>
+                            <form class="input" name="recipe-input" action="#">
+                                <input type="text">
+                                <input class="btn btn-primary btn-md" type="Submit" value="Search Recipes"/>
+                            </form>
+                        </aside>
+                        <section class="col-lg-9">
+                            <div class="alr" class="col-lg-12">Uh oh!Have you had your daily veggies today</div>
+                            <div class="content-row">    
+                                <div id="change-header"><h2>Wild and Wacky Vegetables</h2></div>
+                            <div class="content-desc">
+                                <div id="content-desc-main-i"  class="content-desc-main">
+                                The beet is the most intense of vegetables.The radish admittedly is, more feverish, but the fire of radish is a cold fire,the fire of discontent not of passion.Tomatoes are lusty enough,yet there runs through tomatoes an undercurrent of frivolity.Beets are deadly serious. 
+                                <div class="content-desc-main-author">-Tom Robbins</div>
+                                </div>
+                             </div>
+                            </div>
+                            <div class="content-row">
+                            <h3>Some Diseases</h3>
+                            <div class="content-desc">
+                                <div class="content-desc-table">
+                                <div class="col-lg-2">
+                                    <ul>
+                                        <li><b>Veggie</b></li>
+                                        <li>Beets</li>
+                                        <li>Carrots</li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <ul>
+                                        <li><b>Disease</b></li>
+                                        <li>Beeturia</li>
+                                        <li>Carotenosis</li>
+                                    </ul>
+                                </div>
+                                </div>      
+                             </div>
+                            </div>
+                           <div class="content-row">
+                            <div class="content-desc-images">
+                            <div class="col-lg-12">
+                                <div class="col-lg-4">
+                                    <img id="image1" src="images/img1.png"/>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img id="image2" src="images/img2.png"/>
+                                </div>
+                                <div class="col-lg-4">
+                                    <img id="image3" src="images/img3.png"/>
+                                </div>
+                             </div>
+                            </div>
+                            </div>
+                            <div class="content-row">
+                            <h2>Readily Informative Info</h2>
+                            <div id="content-desc-i" class="content-desc">
+                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                                The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+                             </div>
+                            </div>
+                        </section>
+                    </div>    
+                </div>     
+         </div>
+        </div> 
+      <script type="text/javascript" src="js/firstboot.js"></script>  
+       </body>
+</html>

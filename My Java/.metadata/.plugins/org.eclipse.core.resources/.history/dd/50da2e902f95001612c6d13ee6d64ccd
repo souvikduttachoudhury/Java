@@ -1,0 +1,24 @@
+package pkg1;
+class Store{
+	void Init(int n,int a[]){
+		for(int i=0;i<n;i++){
+			System.out.println(a[i]);
+		}
+	}
+	void Init(int n,double a[]){
+		for(int i=0;i<n;i++){
+			System.out.println(a[i]);
+		}
+	}
+	void Init(int n,char a[]){
+		for(int i=0;i<n;i++){
+			System.out.println(a[i]);
+		}
+	}
+}
+public class Overloading {
+	public static void main(String args[]){
+		Store st=new Store();
+		System.out.println(""+2+3);
+	}
+}

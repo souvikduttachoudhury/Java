@@ -1,0 +1,69 @@
+
+class Person{
+	protected String myName ;
+	protected int myAge;
+	protected String myGender;
+	/*Person(String name,int age,String gender){
+		myName = name;
+		myAge = age;
+		myGender= gender;
+	}
+	public String toString(){
+		return (""+myName + ", age: "+ myAge +", gender: "+myGender+"");
+	}*/
+	public String getMyName() {
+		return myName;
+	}
+	public void setMyName(String myName) {
+		this.myName = myName;
+	}
+	public int getMyAge() {
+		return myAge;
+	}
+	public void setMyAge(int myAge) {
+		this.myAge = myAge;
+	}
+	public String getMyGender() {
+		return myGender;
+	}
+	public void setMyGender(String myGender) {
+		this.myGender = myGender;
+	}
+}
+class Student extends Person{
+	protected String myIdNum;
+	protected double myGPA;
+    Student(String name,int age,String gender){
+    	super.setMyAge(age);
+    	super.setMyGender(gender);
+    	super.setMyName(name);
+    	//myIdNum = idNum;
+    	//myGPA = gpa;
+    	}
+	public String getMyIdNum() {
+		return myIdNum;
+	}
+	public void setMyIdNum(String myIdNum) {
+		this.myIdNum = myIdNum;
+	}
+	public double getMyGPA() {
+		return myGPA;
+	}
+	public void setMyGPA(double myGPA) {
+		this.myGPA = myGPA;
+	}
+}
+class Teacher extends Person{
+	protected String subject;
+	protected double salary;
+	public Teacher(String name,int age,String gender,String subject,double salary){
+		super.setMyAge(age);
+    	super.setMyGender(gender);
+    	super.setMyName(name);
+    	this.subject=subject;
+    	this.salary=salary;
+	}
+}
+public class TestPerson {
+	
+}
